@@ -14,7 +14,7 @@
             'account',
             'sale',
             'sale_stock',
-            'ext_yoko_formato_factura_nd_nc',
+            'l10n_ve_formato_factura_nd_nc',
             'l10n_ve_fiscal_requirements',
             ],
         'data': [
