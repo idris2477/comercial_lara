@@ -12,8 +12,8 @@
               action="action_product_modelo"
               sequence="16"/>
 
-    <menuitem id="menu_product_modelo" parent="menu_productos_vehiculos_in_config_stock"
-              action="action_product_modelo"
+    <menuitem id="menu_product_marca_vehiculo" parent="menu_productos_vehiculos_in_config_stock"
+              action="action_product_marca_vehiculo"
               sequence="17"/>
 
     <menuitem id="menu_product_motor" parent="menu_productos_vehiculos_in_config_stock"
@@ -28,18 +28,8 @@
               action="action_product_medida"
               sequence="20"/>
 
-
-<!--    <menuitem id="menu_product_year" parent="menu_productos_vehiculos_in_config_stock"-->
-<!--              action="action_product_year"-->
-<!--              sequence="21"/>-->
-
-<!--    <menuitem id="menu_product_year_hasta" parent="menu_productos_vehiculos_in_config_stock"-->
-<!--              action="action_product_year_hasta"-->
-<!--              sequence="22"/>-->
-
     <menuitem id="menu_product_observacion" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_observacion"
               sequence="23"/>
-
-
+    
 </odoo>
