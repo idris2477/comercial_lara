@@ -6,5 +6,5 @@ access_product_marca_vehiculo,product.marca_vehiculo,model_product_marca_vehicul
 access_product_modelo,product.modelo,model_product_modelo,1,1,1,1
 access_product_motor,product.motor,model_product_motor,1,1,1,1
 access_product_observacion,product.observacion,model_product_observacion,1,1,1,1
-access_product_motor_cilindro,product.motor.cilindro,model_product_motor_cilindro,1,1,1,1
+access_product_motor_litro,product.motor.litro,model_product_motor_litro,1,1,1,1
 

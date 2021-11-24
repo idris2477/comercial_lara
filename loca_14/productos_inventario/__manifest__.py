@@ -27,7 +27,7 @@
         'security/ir.model.access.csv',
         'views/product_template_views.xml',
         'views/product_eje_views.xml',
-        'views/product_motor_cilindro_views.xml',
+        'views/product_motor_litro_views.xml',
         'views/product_montaje_views.xml',
         'views/product_marca_vehiculo_views.xml',
         'views/product_medida_views.xml',

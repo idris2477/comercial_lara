@@ -13,8 +13,8 @@
               sequence="16"/>
 
 
-    <menuitem id="menu_product_motor_cilindro" parent="menu_productos_vehiculos_in_config_stock"
-              action="action_product_motor_cilindro"
+    <menuitem id="menu_product_motor_litro" parent="menu_productos_vehiculos_in_config_stock"
+              action="action_product_motor_litro"
               sequence="17"/>
 
     <menuitem id="menu_product_marca_vehiculo" parent="menu_productos_vehiculos_in_config_stock"
