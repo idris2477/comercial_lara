@@ -10,6 +10,9 @@
                 <field name="product_montaje"/>
                 <field name="product_medida"/>
                 <field name="product_modelo"/>
+                <field name="product_motor"/>
+                <field name="product_observacion"/>
+                <field name="product_marca_vehiculo"/>
             </xpath>
         </field>
     </record>
@@ -19,9 +22,6 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_standard_price']" position="inside">
-                <field name="product_motor"/>
-                <field name="product_observacion"/>
-                <field name="product_marca_vehiculo"/>
                 <field name="product_year"/>
                 <field name="product_year_hasta"/>
                 <field name="product_numero_parte"/>
