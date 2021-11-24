@@ -12,24 +12,30 @@
               action="action_product_modelo"
               sequence="16"/>
 
+
+    <menuitem id="menu_product_motor_cilindro" parent="menu_productos_vehiculos_in_config_stock"
+              action="action_product_motor_cilindro"
+              sequence="17"/>
+
     <menuitem id="menu_product_marca_vehiculo" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_marca_vehiculo"
-              sequence="17"/>
+              sequence="18"/>
 
     <menuitem id="menu_product_motor" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_motor"
-              sequence="18"/>
+              sequence="19"/>
 
     <menuitem id="menu_product_eje" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_eje"
-              sequence="19"/>
+              sequence="20"/>
 
     <menuitem id="menu_product_medida" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_medida"
-              sequence="20"/>
+              sequence="21"/>
 
     <menuitem id="menu_product_observacion" parent="menu_productos_vehiculos_in_config_stock"
               action="action_product_observacion"
-              sequence="23"/>
-    
+              sequence="22"/>
+
+
 </odoo>

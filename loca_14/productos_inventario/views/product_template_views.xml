@@ -13,6 +13,7 @@
                 <field name="product_motor"/>
                 <field name="product_observacion"/>
                 <field name="product_marca_vehiculo"/>
+                <field name="product_motor_cilindro"/>
             </xpath>
         </field>
     </record>
