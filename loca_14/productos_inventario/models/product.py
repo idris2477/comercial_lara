@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
     product_marca_vehiculo = fields.Many2one('product.marca.vehiculo', string='Marca Vehiculo')
     product_modelo = fields.Many2one('product.modelo', string='Modelo Carro')
     product_motor = fields.Many2one('product.motor', string='Motor Cilindro')
-    product_observacion = fields.Many2one('product.observacion', string='Observacion')
+    product_otras_aplicaciones = fields.Many2one('product.otras.aplicaciones', string='Otra Aplicaciones')
     product_motor_litro = fields.Many2one('product.motor.litro', string='Motor Litro')
     product_numero_parte = fields.Char(string='Número de Parte')
     product_year = fields.Char(string='Fecha Desde')
@@ -54,10 +54,10 @@ class ProductMotor(models.Model):
     name = fields.Char(string="Motor Cilindro")
 
 
-class Observacion(models.Model):
-    _name = "product.observacion"
+class ProductOtrasaplicaciones(models.Model):
+    _name = "product.otras.aplicaciones"
 
-    name = fields.Char(string="Observacion")
+    name = fields.Char(string="Otras Aplicaciones")
 
 class MotorCilindro(models.Model):
     _name = "product.motor.litro"

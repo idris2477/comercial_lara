@@ -33,9 +33,7 @@
               action="action_product_medida"
               sequence="21"/>
 
-    <menuitem id="menu_product_observacion" parent="menu_productos_vehiculos_in_config_stock"
-              action="action_product_observacion"
+    <menuitem id="menu_product_otras_aplicaciones" parent="menu_productos_vehiculos_in_config_stock"
+              action="action_product_otras_aplicaciones"
               sequence="22"/>
-
-
 </odoo>

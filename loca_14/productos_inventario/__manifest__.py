@@ -33,7 +33,7 @@
         'views/product_medida_views.xml',
         'views/product_modelo_views.xml',
         'views/product_motor_views.xml',
-        'views/product_observacion_views.xml',
+        'views/product_otras_aplicaciones_views.xml',
         'views/product_motor_views.xml',
         'views/menu_root_views.xml',
     ],
