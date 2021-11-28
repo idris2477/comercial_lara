@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_invoices_report_accounting" model="ir.actions.report">
+            <field name="name">Factura Cliente</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">accounting_report.report_accounting_report</field>
+            <field name="report_file">accounting_report.report_accounting_report</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="account_invoices_report_accounting_prueba" model="ir.actions.report">
+            <field name="name">Factura/NE</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">accounting_report.report_accounting_nota_entrega_report</field>
+            <field name="report_file">accounting_report.report_accounting_nota_entrega_report</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="account_invoices_report_accounting_nota_credito" model="ir.actions.report">
+            <field name="name">Factura/NC</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">accounting_report.report_accounting_nota_credito_report</field>
+            <field name="report_file">accounting_report.report_accounting_nota_credito_report</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="account_invoices_report_accounting_nota_debito" model="ir.actions.report">
+            <field name="name">Factura/ND</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">accounting_report.report_accounting_nota_debito_report</field>
+            <field name="report_file">accounting_report.report_accounting_nota_credito_report</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
+
