@@ -18,8 +18,6 @@ class AccountMove(models.Model):
                 self.vendedor_producto = self.vendedor_aux
 
 
-
-
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
