@@ -7,7 +7,7 @@ from odoo import api
 class Purchase_Order(models.Model):
     _inherit = "purchase.order.line"
 
-    product_numero_parte = fields.Char(string='Numero de Parte', compute='_compute_nro_parte')
+    product_numero_parte = fields.Char(string='Numero de Parte')
     product_codigo_barras = fields.Char( string='Código de Barras')
 
     @api.onchange('product_id')
