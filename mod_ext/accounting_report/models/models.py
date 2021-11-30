@@ -9,6 +9,7 @@ class AccountMove(models.Model):
     vendedor_producto = fields.Many2one('res.partner',string='Vendedor')
     vendedor_aux = fields.Many2one('res.partner', compute='_compute_vendedor')
 
+
     def _compute_vendedor(self):
         self.vendedor_aux = ""
         vendedor = self.env['sale.order'].search([('name', '=', self.invoice_origin)])
@@ -29,4 +30,6 @@ class AccountMove(models.Model):
     def _onchage_checks_ocultar_libros(self):
         if self.act_nota_entre == True:
             self.ocultar_libros = True
+        else:
+            self.ocultar_libros = False
 
