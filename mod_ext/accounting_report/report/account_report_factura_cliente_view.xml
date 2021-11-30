@@ -161,132 +161,143 @@
                                 </t>
                             </tr>
                         </table>
-                        <footer >
+                        <footer>
+
+
                             <div style="position: absolute; top: 970px; page-break-inside: evitar;">
-
-
-                            <table>
-                                <tr>
-                                    <h2 style="height: 2px; background-color: black;">
-                                        <hr/>
-                                    </h2>
-                                    <td>TÉRMINOS Y CONDICIONES:</td>
-                                </tr>
-                            </table>
-                            <table style="width: 520px;margin-left:440px;font-size:13px;">
-
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">SUBTOTAL:</div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <div style="text-align:center;">
-                                            <t t-esc="docs.float_format(docs.fact_div(acum_subtotal))"/>
-                                            <t t-esc="docs.doc_currency_id.symbol"/>
-                                        </div>
-                                    </td>
-
-                                    <t t-set="total_factura" t-value="total_factura+acum_subtotal"/>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">
-                                            DESCUENTO
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <div style="text-align:center;">
-                                            <t t-esc="acum_descuento"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">
-                                            TOTAL EXCENTO
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <div style="text-align:center;">
-                                            <t t-esc="acum_excento"/>
-                                        </div>
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">
-                                            TOTAL BASE IMPONIBLE
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <div style="text-align:center;">
-                                            <t t-esc="acum_base_imp"/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">
-                                            TOTAL IMPUESTO
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="text-align:right;">
-                                            16%
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="text-align:center;">
-                                            <t t-esc="acum_alicuota_general"/>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <t t-if="acum_alicuota_reducida>0">
+                                <table style="font-size:13px;width:55%;">
                                     <tr>
+                                        <h2 style="height: 2px; background-color: black;">
+                                            <hr/>
+                                        </h2>
+                                        <td>TÉRMINOS Y CONDICIONES:&amp;nbsp;&amp;nbsp;
+                                            <t t-esc="docs.narration"/>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table style="width: 520px;margin-left:440px;font-size:13px; position: absolute; top: 50px; page-break-inside: evitar;">
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">SUBTOTAL:</div>
+                                        </td>
                                         <td>
 
                                         </td>
                                         <td>
+                                            <div style="text-align:center;">
+                                                <t t-esc="docs.float_format(docs.fact_div(acum_subtotal))"/>
+                                                <t t-esc="docs.doc_currency_id.symbol"/>
+                                            </div>
+                                        </td>
+
+                                        <t t-set="total_factura" t-value="total_factura+acum_subtotal"/>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">
+                                                DESCUENTO
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div style="text-align:center;">
+                                                <t t-esc="acum_descuento"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">
+                                                TOTAL EXCENTO
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div style="text-align:center;">
+                                                <t t-esc="acum_excento"/>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">
+                                                TOTAL BASE IMPONIBLE
+                                            </div>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div style="text-align:center;">
+                                                <t t-esc="acum_base_imp"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">
+                                                TOTAL IMPUESTO
+                                            </div>
+                                        </td>
+                                        <td>
                                             <div style="text-align:right;">
-                                                8%
+                                                16%
                                             </div>
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_alicuota_reducida"/>
+                                                <t t-esc="acum_alicuota_general"/>
                                             </div>
                                         </td>
 
                                     </tr>
-                                </t>
-                                <tr>
-                                    <td>
-                                        <div style="margin-left:150px">
-                                            TOTAL OPERACION
-                                        </div>
-                                    </td>
+                                    <t t-if="acum_alicuota_reducida>0">
+                                        <tr>
+                                            <td>
 
-                                    <td></td>
-                                    <td>
-                                        <div style="text-align:left;">
-                                            <t t-esc="docs.float_format(docs.fact_div(acum_subtotal+acum_alicuota_general))"/>
-                                            <t t-esc="docs.doc_currency_id.symbol"/>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </td>
+                                            <td>
+                                                <div style="text-align:right;">
+                                                    8%
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="text-align:center;">
+                                                    <t t-esc="acum_alicuota_reducida"/>
+                                                </div>
+                                            </td>
 
-                            </table>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-left:150px">
+                                                TOTAL OPERACION
+                                            </div>
+                                        </td>
+
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div style="text-align:left;">
+                                                <t t-esc="docs.float_format(docs.fact_div(acum_subtotal+acum_alicuota_general))"/>
+                                                <t t-esc="docs.doc_currency_id.symbol"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </table>
                             </div>
                         </footer>
-
                     </div>
                 </t>
             </t>

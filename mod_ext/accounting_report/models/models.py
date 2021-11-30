@@ -18,7 +18,15 @@ class AccountMove(models.Model):
                 self.vendedor_producto = self.vendedor_aux
 
 
+
+
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
     prueba_switches = fields.Boolean(defaul=False, value=False)
+
+    @api.onchange('act_nota_entre')
+    def _onchage_checks_ocultar_libros(self):
+        if self.act_nota_entre == True:
+            self.ocultar_libros = True
+
