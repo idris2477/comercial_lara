@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_accounting_nota_debito_report">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <table style="margin-left:836px;font-size:14px;">
+                            <tr>
+                                <td>
+                                    <b>NOTA DE DEBITO</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <t t-esc="docs.invoice_number"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">RAZON SOCIAL:</td>
+                                <td>
+                                    <b>
+                                        <t t-esc="docs.partner_id.name"/>
+                                    </b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">RIF:</td>
+                                <td style="width:65%">
+                                    <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
+                                </td>
+                                <td>FECHA DE EMISION:
+                                    <t t-esc="docs.invoice_date"/>
+                                </td>
+                            </tr>
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">DIRECCIÓN:</td>
+                                <td style="width:65%;">
+                                    <t t-esc="docs.partner_id.street"/>
+                                </td>
+                                <td>FECHA DE VENCIMIENTO:
+                                    <t t-esc="docs.invoice_date_due"/>
+                                </td>
+                            </tr>
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">TELÉFONOS:</td>
+                                <td style="width:65%;">
+                                    <t t-esc="docs.partner_id.phone"/>/
+                                    <t t-esc="docs.partner_id.mobile"/>
+                                </td>
+                                <td>VENDEDOR:
+                                    <t t-esc="docs.vendedor_producto.name"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%">
+                            <tr>
+                                <td style="text-align:center;">
+                                    <div>
+                                        <h2>
+
+                                        </h2>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%">
+                            <tbody class="table table-condensed" border="1" rules="rows"
+                                   style="border-bottom: 2px solid black;border-top:2px solid black;">
+                                <tr style="font-size:12px;">
+                                    <td style="text-align:center">ITEM/COD</td>
+                                    <td style="text-align:left">DESCRIPCIÓN</td>
+                                    <td style="text-align:center">CANTIDAD</td>
+                                    <td style="text-align:center">PRECIO</td>
+                                    <td style="text-align:left">DESC%</td>
+                                    <td style="text-align:center">TOTAL</td>
+                                </tr>
+                            </tbody>
+
+                            <t t-set="acum_subtotal" t-value="0"/>
+                            <t t-set="acum_base_imp" t-value="0"/>
+                            <t t-set="acum_excento" t-value="0"/>
+                            <t t-set="acum_alicuota_general" t-value="0"/>
+                            <t t-set="acum_alicuota_reducida" t-value="0"/>
+                            <t t-set="acum_alicuota_adicional" t-value="0"/>
+                            <t t-set="acum_descuento" t-value="0"/>
+                            <t t-set="total_factura" t-value="0"/>
+
+                            <tr>
+                                <t t-foreach="docs.invoice_line_ids" t-as="o">
+
+                                    <tr style="font-size:12px;">
+                                        <!--                                        codigo del producto-->
+                                        <td style="text-align:center">
+                                            <t t-esc="o.product_id.default_code"/>
+                                        </td>
+                                        <!--                                        descripcion del producto-->
+                                        <td>
+                                            <div style="margin-left:12px;">
+                                                <t t-esc="o.product_id.name"/>
+                                            </div>
+                                        </td>
+                                        <!--                                        cantidad del producto a facturar-->
+                                        <td>
+                                            <div align="center">
+                                                <t t-esc="o.quantity"/>
+                                            </div>
+                                        </td>
+                                        <!--                                        precio del producto-->
+                                        <td>
+                                            <div align="center">
+                                                <t t-esc="o.float_format(o.fact_div_line(o.price_unit))"/>
+                                            </div>
+                                        </td>
+                                        <!--                                        descuento del producto-->
+                                        <td>
+                                            <div style="margin-left:13px;"><t t-esc="o.discount"/>%
+                                            </div>
+                                        </td>
+                                        <!--total a pagar -->
+                                        <td style="text-align:center;">
+                                            <t t-esc="o.float_format(o.fact_div_line(o.price_subtotal))"/>
+                                            <t t-set="acum_subtotal" t-value="acum_subtotal+o.price_subtotal"/>
+                                        </td>
+
+                                        <t t-if="o.discount">
+                                            <t t-set="acum_descuento"
+                                               t-value="acum_descuento+(o.quantity*o.price_unit-o.price_subtotal)"/>
+                                        </t>
+
+                                        <t t-if="o.tax_ids.aliquot== 'general' ">
+                                            <t t-set="acum_alicuota_general"
+                                               t-value="acum_alicuota_general+(o.price_total-o.price_subtotal)"/>
+                                            <t t-set="acum_base_imp" t-value="acum_base_imp+o.price_subtotal"/>
+                                        </t>
+
+                                        <t t-if="o.tax_ids.aliquot== 'reduced' ">
+                                            <t t-set="acum_alicuota_reducida"
+                                               t-value="acum_alicuota_reducida+(o.price_total-o.price_subtotal)"/>
+                                            <t t-set="acum_base_imp" t-value="acum_base_imp+o.price_subtotal"/>
+                                        </t>
+
+                                        <t t-if="o.tax_ids.aliquot== 'additional' ">
+                                            <t t-set="acum_alicuota_adicional"
+                                               t-value="acum_alicuota_adicional+(o.price_total-o.price_subtotal)"/>
+                                            <t t-set="acum_base_imp" t-value="acum_base_imp+o.price_subtotal"/>
+                                        </t>
+
+
+                                        <t t-if="o.tax_ids.aliquot== 'exempt' ">
+                                            <t t-set="acum_excento"
+                                               t-value="acum_excento+(o.price_total)"/>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </tr>
+                        </table>
+                        <footer >
+                            <div style="position: absolute; top: 950px; page-break-inside: evitar;">
+                            <table>
+                                <tr>
+                                    <h2 style="height: 2px; background-color: black;">
+                                        <hr/>
+                                    </h2>
+                                    <td>TÉRMINOS Y CONDICIONES:</td>
+                                </tr>
+                            </table>
+                            <table style="width: 520px;margin-left:440px;font-size:13px;">
+
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">SUBTOTAL:</div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div style="text-align:center;">
+                                            <t t-esc="docs.float_format(docs.fact_div(acum_subtotal))"/>
+                                            <t t-esc="docs.doc_currency_id.symbol"/>
+                                        </div>
+                                    </td>
+
+                                    <t t-set="total_factura" t-value="total_factura+acum_subtotal"/>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">
+                                            DESCUENTO
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div style="text-align:center;">
+                                            <t t-esc="acum_descuento"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">
+                                            TOTAL EXCENTO
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div style="text-align:center;">
+                                            <t t-esc="acum_excento"/>
+                                        </div>
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">
+                                            TOTAL BASE IMPONIBLE
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div style="text-align:center;">
+                                            <t t-esc="acum_base_imp"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">
+                                            TOTAL IMPUESTO
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="text-align:right;">
+                                            16%
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="text-align:center;">
+                                            <t t-esc="acum_alicuota_general"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <t t-if="acum_alicuota_reducida>0">
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <div style="text-align:right;">
+                                                8%
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="text-align:center;">
+                                                <t t-esc="acum_alicuota_reducida"/>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td>
+                                        <div style="margin-left:150px">
+                                            TOTAL OPERACION
+                                        </div>
+                                    </td>
+
+                                    <td></td>
+                                    <td>
+                                        <div style="text-align:left;">
+                                            <t t-esc="docs.float_format(docs.fact_div(acum_subtotal+acum_alicuota_general))"/>
+                                            <t t-esc="docs.doc_currency_id.symbol"/>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            </div>
+                        </footer>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
