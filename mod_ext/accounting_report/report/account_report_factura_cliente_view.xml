@@ -5,7 +5,7 @@
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <div class="page">
-                        <table style="margin-left:920px;font-size:15px;">
+                        <table style="margin-left:920px;font-size:13px;">
                             <tr>
                                 <td>
                                     <b>FACTURA</b>
@@ -18,7 +18,7 @@
                             </tr>
                         </table>
                         <table width="100%">
-                            <tr style="font-size:15px;">
+                            <tr style="font-size:13px;">
                                 <td style="width:11%;">RAZON SOCIAL:</td>
                                 <td>
                                     <b>
@@ -28,16 +28,16 @@
                             </tr>
                         </table>
                         <table width="100%">
-                            <tr style="font-size:15px;">
+                            <tr style="font-size:13px;">
                                 <td style="width:11%;">RIF:</td>
                                 <td style="width:65%">
                                     <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
                                 </td>
-                                <td>FECHA DE EMISIÓN:
+                                <td>FECHA DE EMISION:
                                     <t t-esc="docs.invoice_date"/>
                                 </td>
                             </tr>
-                            <tr style="font-size:15px;">
+                            <tr style="font-size:13px;">
                                 <td style="width:11%;">DIRECCIÓN:</td>
                                 <td style="width:65%;">
                                     <t t-esc="docs.partner_id.street"/>
@@ -46,7 +46,7 @@
                                     <t t-esc="docs.invoice_date_due"/>
                                 </td>
                             </tr>
-                            <tr style="font-size:15px;">
+                            <tr style="font-size:13px;">
                                 <td style="width:11%;">TELÉFONOS:</td>
                                 <td style="width:65%;">
                                     <t t-esc="docs.partner_id.phone"/>/
@@ -63,6 +63,7 @@
                                 <td style="text-align:center;">
                                     <div>
                                         <h2>
+
                                         </h2>
                                     </div>
                                 </td>
@@ -164,7 +165,7 @@
 
 
                             <div style="position: absolute; top: 970px; page-break-inside: evitar;">
-                                <table style="font-size:14px;width:55%;">
+                                <table style="font-size:13px;width:55%;">
                                     <tr>
                                         <h2 style="height: 2px; background-color: black;">
                                             <hr/>
@@ -175,7 +176,7 @@
                                     </tr>
                                 </table>
 
-                                <table style="width: 520px;margin-left:440px;font-size:14px; position: absolute; top: 50px; page-break-inside: evitar;">
+                                <table style="width: 520px;margin-left:440px;font-size:13px; position: absolute; top: 50px; page-break-inside: evitar;">
                                     <tr>
                                         <td>
                                             <div style="margin-left:150px">SUBTOTAL:</div>
@@ -279,7 +280,7 @@
                                     <tr>
                                         <td>
                                             <div style="margin-left:150px">
-                                                TOTAL OPERACIÓN
+                                                TOTAL OPERACION
                                             </div>
                                         </td>
 
