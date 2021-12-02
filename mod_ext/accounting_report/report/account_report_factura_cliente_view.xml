@@ -205,7 +205,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_descuento"/>
+                                                <t t-esc="round(acum_descuento, 2)"/>
                                             </div>
                                         </td>
                                     </tr>
@@ -220,7 +220,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_excento"/>
+                                                <t t-esc="round(acum_excento, 2)"/>
                                             </div>
                                         </td>
 
@@ -237,7 +237,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_base_imp"/>
+                                                <t t-esc="round(acum_base_imp, 2)"/>
                                             </div>
                                         </td>
                                     </tr>
@@ -254,7 +254,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_alicuota_general"/>
+                                                <t t-esc="round(acum_alicuota_general, 2)"/>
                                             </div>
                                         </td>
 
@@ -271,10 +271,27 @@
                                             </td>
                                             <td>
                                                 <div style="text-align:center;">
-                                                    <t t-esc="acum_alicuota_reducida"/>
+                                                    <t t-esc="round(acum_alicuota_reducida, 2)"/>
                                                 </div>
                                             </td>
 
+                                        </tr>
+                                    </t>
+                                    <t t-if="acum_alicuota_adicional>0">
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                <div style="text-align:right;">
+                                                    31%
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="text-align:center;">
+                                                    <t t-esc="round(acum_alicuota_adicional, 2)"/>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </t>
                                     <tr>
