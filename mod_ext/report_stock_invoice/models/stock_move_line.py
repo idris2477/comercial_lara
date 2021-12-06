@@ -40,8 +40,10 @@ class StockMoveLine(models.Model):
                 for move in account:
                     if move.correlativo_nota_entrega:
                         note += move.correlativo_nota_entrega +" "
+                        name += ''
                     if move.invoice_number_cli:
                         name += move.invoice_number_cli +" "
+                        note += ''
                 line.doc_invoice = name
                 line.doc_note_entrega = note
             else:
