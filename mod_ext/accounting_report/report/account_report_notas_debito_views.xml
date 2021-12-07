@@ -39,7 +39,7 @@
                             </tr>
                             <tr style="font-size:13px;">
                                 <td style="width:11%;">DIRECCIÓN:</td>
-                                <td style="width:58%;">
+                                <td style="width:55%;">
                                     <t t-esc="docs.partner_id.street"/>
                                 </td>
                                 <td>FECHA DE VENCIMIENTO:
@@ -173,7 +173,7 @@
                                     </tr>
                                 </table>
 
-                               <div style="position: absolute; top: 980px; page-break-inside: evitar;">
+                               <div style="position: absolute; top: 1000px; page-break-inside: evitar;">
                             <table style="width: 520px;margin-left:440px;font-size:13px;">
 
                                 <tr>

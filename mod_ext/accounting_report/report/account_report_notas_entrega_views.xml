@@ -43,6 +43,11 @@
                                         <h1 t-if="docs.company_id.name">
                                             <span t-field="docs.company_id.name"/>
                                         </h1>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        RIF:&amp;nbsp;<span t-field="docs.company_id.partner_id.vat"/>
                                     </td>
                                 </tr>
                                 <tr>
