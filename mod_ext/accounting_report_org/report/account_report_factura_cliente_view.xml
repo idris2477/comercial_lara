@@ -1,144 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="paperformat_report_accounting_nota_entrega_report" model="report.paperformat">
-            <field name="default" eval="True"/>
-            <field name="name">Formato nuevo de Nota entrega</field>
-            <field name="default" eval="True"/>
-            <field name="format">custom</field>
-            <field name="page_height">279</field>
-            <field name="page_width">216</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">10</field>
-            <field name="margin_bottom">30</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">35</field>
-            <field name="dpi">96</field>
-        </record>
-
-
-        <template id="report_accounting_nota_entrega_report">
+        <template id="report_accounting_report">
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <div class="page">
-                        <table style="margin-left:700px;margin-top:-100px;">
+                        <table style="margin-left:920px;font-size:13px;">
                             <tr>
                                 <td>
+                                    <b>FACTURA</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <t t-esc="docs.invoice_number"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">RAZON SOCIAL:</td>
+                                <td>
+                                    <b>
+                                        <t t-esc="docs.partner_id.name"/>
+                                    </b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">RIF:</td>
+                                <td style="width:65%">
+                                    <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
+                                </td>
+                                <td>FECHA DE EMISION:
+                                    <t t-esc="docs.invoice_date"/>
+                                </td>
+                            </tr>
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">DIRECCIÓN:</td>
+                                <td style="width:65%;">
+                                    <t t-esc="docs.partner_id.street"/>
+                                </td>
+                                <td>FECHA DE VENCIMIENTO:
+                                    <t t-esc="docs.invoice_date_due"/>
+                                </td>
+                            </tr>
+                            <tr style="font-size:13px;">
+                                <td style="width:11%;">TELÉFONOS:</td>
+                                <td style="width:65%;">
+                                    <t t-esc="docs.partner_id.phone"/>/
+                                    <t t-esc="docs.partner_id.mobile"/>
+                                </td>
+                                <td>VENDEDOR:
+                                    <t t-esc="docs.vendedor_producto.name"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width:100%">
+                            <tr>
+                                <td style="text-align:center;">
                                     <div>
-                                        <t t-if="docs.company_id.logo">
-                                            <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}"
-                                                 style="width:auto; height:300px;"/>
-                                        </t>
+                                        <h2>
+
+                                        </h2>
                                     </div>
                                 </td>
                             </tr>
                         </table>
 
-                        <div style="position: absolute; top: 50px; page-break-inside: evitar;">
-                            <table style="font-size:13px;margin-top:-30px;">
-                                <tr>
-                                    <td>
-                                        <h1 t-if="docs.company_id.name">
-                                            <span t-field="docs.company_id.name"/>
-                                        </h1>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span t-field="docs.company_id.street"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span t-field="docs.company_id.street2"/>&amp;nbsp;
-                                        <span t-field="docs.company_id.city"/>&amp;nbsp;
-                                        <span t-field="docs.company_id.state_id"/>&amp;nbsp;
-                                        <span t-field="docs.company_id.zip"/>&amp;nbsp;
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span t-field="docs.company_id.phone"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span t-field="docs.company_id.email"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div style="position: absolute; top: 115px; page-break-inside: evitar;">
-                            <table style="margin-left:840px;font-size:13
-                        px;">
-                                <tr>
-                                    <td>
-                                        <b>Nota de Entrega</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:right">
-                                        <t t-esc="docs.correlativo_nota_entrega"/>
-                                    </td>
-                                </tr>
-                            </table>
-                            <h2></h2>
-                            <table width="100%">
-                                <tr style="font-size:12px;">
-                                    <td style="width:11%;">RAZÓN SOCIAL:</td>
-                                    <td>
-                                        <b>
-                                            <t t-esc="docs.partner_id.name"/>
-                                        </b>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table width="100%">
-                                <tr style="font-size:13px;">
-                                    <td style="width:11%;">RIF:</td>
-                                    <td style="width:65%">
-                                        <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
-                                    </td>
-                                    <td>FECHA DE EMISIÓN:
-                                        <t t-esc="docs.invoice_date"/>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px;">
-                                    <td style="width:11%;">DIRECCIÓN:</td>
-                                    <td style="width:65%;">
-                                        <t t-esc="docs.partner_id.street"/>
-                                    </td>
-                                    <td>FECHA DE VENCIMIENTO:
-                                        <t t-esc="docs.invoice_date_due"/>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px;">
-                                    <td style="width:11%;">TELÉFONOS:</td>
-                                    <td style="width:65%;">
-                                        <t t-esc="docs.partner_id.phone"/>/
-                                        <t t-esc="docs.partner_id.mobile"/>
-                                    </td>
-                                    <td>VENDEDOR:
-                                        <t t-esc="docs.vendedor_producto.name"/>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table style="width:100%">
-                                <tr>
-                                    <td style="text-align:center;">
-                                        <div>
-                                            <h2>
-
-                                            </h2>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <table style="margin-top:60px;" width="100%">
+                        <table width="100%">
                             <tbody class="table table-condensed" border="1" rules="rows"
                                    style="border-bottom: 2px solid black;border-top:2px solid black;">
                                 <tr style="font-size:12px;">
@@ -230,18 +162,21 @@
                             </tr>
                         </table>
                         <footer>
-  <table style="font-size:13px;width:100%;margin-top: 600px;position: absolute; ">
-                                    <tr style="border-top: 2px solid black;line-height: 2em;">
-                                        <td  style="width:500px;text-align: justify;" >TÉRMINOS Y CONDICIONES:&amp;nbsp;&amp;nbsp;
+
+
+                            <div style="position: absolute; top: 970px; page-break-inside: evitar;">
+                                <table style="font-size:13px;width:55%;">
+                                    <tr>
+                                        <h2 style="height: 2px; background-color: black;">
+                                            <hr/>
+                                        </h2>
+                                        <td>TÉRMINOS Y CONDICIONES:&amp;nbsp;&amp;nbsp;
                                             <t t-esc="docs.narration"/>
-                                        </td>
-                                        <td colspan="2">
                                         </td>
                                     </tr>
                                 </table>
-                                 <div style="position: absolute; top: 980px; page-break-inside: evitar;">
-                                <table style="width: 520px;margin-left:440px;font-size:13px;">
 
+                                <table style="width: 520px;margin-left:440px;font-size:13px; position: absolute; top: 50px; page-break-inside: evitar;">
                                     <tr>
                                         <td>
                                             <div style="margin-left:150px">SUBTOTAL:</div>
@@ -285,7 +220,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_excento"/>
+                                                <t t-esc="round(acum_excento, 2)"/>
                                             </div>
                                         </td>
 
@@ -302,7 +237,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="acum_base_imp"/>
+                                                <t t-esc="round(acum_base_imp, 2)"/>
                                             </div>
                                         </td>
                                     </tr>
@@ -339,6 +274,7 @@
                                                     <t t-esc="round(acum_alicuota_reducida, 2)"/>
                                                 </div>
                                             </td>
+
                                         </tr>
                                     </t>
                                     <t t-if="acum_alicuota_adicional>0">
@@ -358,7 +294,6 @@
                                             </td>
                                         </tr>
                                     </t>
-
                                     <tr>
                                         <td>
                                             <div style="margin-left:150px">
@@ -380,11 +315,9 @@
                                 </table>
                             </div>
                         </footer>
-
                     </div>
                 </t>
             </t>
         </template>
-
     </data>
 </odoo>
