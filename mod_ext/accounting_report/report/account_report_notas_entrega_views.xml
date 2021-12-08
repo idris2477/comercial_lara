@@ -70,7 +70,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span t-field="docs.company_id.email"/>
+                                        Correo:&amp;nbsp;<span t-field="docs.company_id.email"/>
                                     </td>
                                 </tr>
                             </table>
