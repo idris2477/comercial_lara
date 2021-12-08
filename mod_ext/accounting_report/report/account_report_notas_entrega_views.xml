@@ -37,12 +37,12 @@
                         </table>
 
                         <div style="position: absolute; top: 50px; page-break-inside: evitar;">
-                            <table style="font-size:13px;margin-top:-30px;">
+                            <table style="font-size:12px;margin-top:-30px;">
                                 <tr>
                                     <td>
-                                        <h1 t-if="docs.company_id.name">
+                                        <h3 t-if="docs.company_id.name">
                                             <span t-field="docs.company_id.name"/>
-                                        </h1>
+                                        </h3>
                                       </td>
                                 </tr>
                                 <tr>
@@ -64,13 +64,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <span t-field="docs.company_id.phone"/>
+                                    <td style="font-size:12px;">
+                                        Teléfono:&amp;nbsp;<span t-field="docs.company_id.phone"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span t-field="docs.company_id.email"/>
+                                        Correo:&amp;nbsp;<span t-field="docs.company_id.email"/>
                                     </td>
                                 </tr>
                             </table>
@@ -90,7 +90,16 @@
                                     </td>
                                 </tr>
                             </table>
-                            <h2></h2>
+                            <table>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
                             <table width="100%">
                                 <tr style="font-size:12px;">
                                     <td style="width:11%;">RAZÓN SOCIAL:</td>

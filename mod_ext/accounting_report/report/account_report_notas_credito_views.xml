@@ -30,19 +30,19 @@
                         <table width="100%">
                             <tr style="font-size:13px;">
                                 <td style="width:11%;">RIF:</td>
-                                <td style="width:58%">
+                                <td style="width:40%">
                                     <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
                                 </td>
-                                <td>FECHA DE EMISIÓN:
+                                <td style="margin-left:850px;">FECHA DE EMISIÓN:
                                     <t t-esc="docs.invoice_date"/>
                                 </td>
                             </tr>
                             <tr style="font-size:13px;">
                                 <td style="width:11%;">DIRECCIÓN:</td>
-                                <td style="width:58%;">
+                                <td style="width:50%;">
                                     <t t-esc="docs.partner_id.street"/>
                                 </td>
-                                <td>FECHA DE VENCIMIENTO:
+                                <td style="margin-left:850px;">FECHA DE VENCIMIENTO:
                                     <t t-esc="docs.invoice_date_due"/>
                                 </td>
                             </tr>
