@@ -43,6 +43,11 @@
                                         <h1 t-if="docs.company_id.name">
                                             <span t-field="docs.company_id.name"/>
                                         </h1>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        RIF:&amp;nbsp;<span t-field="docs.company_id.partner_id.vat"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -85,9 +90,10 @@
                                     </td>
                                 </tr>
                             </table>
+                            <h2></h2>
                             <table width="100%">
-                                <tr style="font-size:13px;">
-                                    <td style="width:11%;">RAZON SOCIAL:</td>
+                                <tr style="font-size:12px;">
+                                    <td style="width:11%;">RAZÓN SOCIAL:</td>
                                     <td>
                                         <b>
                                             <t t-esc="docs.partner_id.name"/>
@@ -229,18 +235,16 @@
                             </tr>
                         </table>
                         <footer>
-                            <div style="position: absolute; top: 980px; page-break-inside: evitar;">
-                                   <table style="font-size:13px;width:55%;">
-                                    <tr>
-                                        <h2 style="height: 2px; background-color: black;">
-                                            <hr/>
-                                        </h2>
-                                        <td>TÉRMINOS Y CONDICIONES:
-                                            &amp;nbsp;&amp;nbsp;
+  <table style="font-size:13px;width:100%;margin-top: 600px;position: absolute; ">
+                                    <tr style="border-top: 2px solid black;line-height: 2em;">
+                                        <td  style="width:500px;text-align: justify;" >TÉRMINOS Y CONDICIONES:&amp;nbsp;&amp;nbsp;
                                             <t t-esc="docs.narration"/>
+                                        </td>
+                                        <td colspan="2">
                                         </td>
                                     </tr>
                                 </table>
+                                 <div style="position: absolute; top: 980px; page-break-inside: evitar;">
                                 <table style="width: 520px;margin-left:440px;font-size:13px;">
 
                                     <tr>

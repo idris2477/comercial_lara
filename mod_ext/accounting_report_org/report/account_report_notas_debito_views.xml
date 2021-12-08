@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="report_accounting_nota_credito_report">
+        <template id="report_accounting_nota_debito_report">
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <div class="page">
-                        <table style="margin-left:800px;font-size:14px;">
+                        <table style="margin-left:836px;font-size:14px;">
                             <tr>
                                 <td>
-                                    <b>NOTA DE CRÉDITO</b>
+                                    <b>NOTA DE DEBITO</b>
                                 </td>
                             </tr>
                             <tr>
@@ -19,7 +19,7 @@
                         </table>
                         <table width="100%">
                             <tr style="font-size:13px;">
-                                <td style="width:11%;">RAZÓN SOCIAL:</td>
+                                <td style="width:11%;">RAZON SOCIAL:</td>
                                 <td>
                                     <b>
                                         <t t-esc="docs.partner_id.name"/>
@@ -30,16 +30,16 @@
                         <table width="100%">
                             <tr style="font-size:13px;">
                                 <td style="width:11%;">RIF:</td>
-                                <td style="width:58%">
+                                <td style="width:65%">
                                     <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
                                 </td>
-                                <td>FECHA DE EMISIÓN:
+                                <td>FECHA DE EMISION:
                                     <t t-esc="docs.invoice_date"/>
                                 </td>
                             </tr>
                             <tr style="font-size:13px;">
                                 <td style="width:11%;">DIRECCIÓN:</td>
-                                <td style="width:58%;">
+                                <td style="width:65%;">
                                     <t t-esc="docs.partner_id.street"/>
                                 </td>
                                 <td>FECHA DE VENCIMIENTO:
@@ -162,17 +162,15 @@
                             </tr>
                         </table>
                         <footer >
-
-                                <table style="font-size:13px;width:100%;margin-top: 760px;position: absolute; ">
-                                    <tr style="border-top: 2px solid black;line-height: 2em;">
-                                        <td  style="width:500px;text-align: justify;" >TÉRMINOS Y CONDICIONES:&amp;nbsp;&amp;nbsp;
-                                            <t t-esc="docs.narration"/>
-                                        </td>
-                                        <td colspan="2">
-                                        </td>
-                                    </tr>
-                                </table>
-                         <div style="position: absolute; top: 1000px; page-break-inside: evitar;">
+                            <div style="position: absolute; top: 950px; page-break-inside: evitar;">
+                            <table>
+                                <tr>
+                                    <h2 style="height: 2px; background-color: black;">
+                                        <hr/>
+                                    </h2>
+                                    <td>TÉRMINOS Y CONDICIONES:</td>
+                                </tr>
+                            </table>
                             <table style="width: 520px;margin-left:440px;font-size:13px;">
 
                                 <tr>
@@ -227,7 +225,7 @@
                                     <td></td>
                                     <td>
                                         <div style="text-align:center;">
-                                            <t t-esc="round(acum_base_imp, 2)"/>
+                                            <t t-esc="acum_base_imp"/>
                                         </div>
                                     </td>
                                 </tr>
