@@ -10,6 +10,7 @@
     'version': '0.1',
     'depends': ['sale', 'account'],
     'data': [
+        'security/account_security.xml',
         'views/sale_views.xml',
         'views/account_views.xml',
     ],

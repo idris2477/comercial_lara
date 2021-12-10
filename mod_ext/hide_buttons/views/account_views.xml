@@ -24,7 +24,7 @@
                 </xpath>
                 <xpath expr="//button[@name='action_register_payment']" position="attributes">
                     <attribute name="groups"/>
-                    <attribute name="groups">account.group_account_user, account.group_account_manager</attribute>
+                    <attribute name="groups">hide_buttons.show_boton_account_group, account.group_account_user, account.group_account_manager</attribute>
                 </xpath>
                 <xpath expr="//button[@name='preview_invoice']" position="attributes">
                     <attribute name="groups">account.group_account_user, account.group_account_manager</attribute>
