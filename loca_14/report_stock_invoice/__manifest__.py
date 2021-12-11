@@ -11,11 +11,8 @@
         'images': [],
         'depends': [
             'stock',
-            'account',
-            'sale',
             'sale_stock',
             'l10n_ve_formato_factura_nd_nc',
-            'l10n_ve_fiscal_requirements',
             ],
         'data': [
             'views/stock_move_line_views.xml',
