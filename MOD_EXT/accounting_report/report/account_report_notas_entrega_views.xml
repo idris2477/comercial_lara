@@ -75,8 +75,9 @@
                                 </tr>
                             </table>
                         </div>
-
-                        <div style="position: absolute; top: 115px; page-break-inside: evitar;">
+                    <br/>
+                    <br/>
+                    <div style="position: absolute; top: 115px; page-break-inside: evitar;">
                             <table style="margin-left:840px;font-size:13
                         px;">
                                 <tr>
@@ -100,6 +101,7 @@
                                     </td>
                                 </tr>
                             </table>
+
                             <table width="100%">
                                 <tr style="font-size:12px;">
                                     <td style="width:11%;">RAZÓN SOCIAL:</td>
