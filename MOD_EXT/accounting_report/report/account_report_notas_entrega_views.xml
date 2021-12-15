@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="paperformat_report_accounting_nota_entrega_report" model="report.paperformat">
-            <field name="default" eval="True"/>
-            <field name="name">Formato nuevo de Nota entrega</field>
-            <field name="default" eval="True"/>
-            <field name="format">custom</field>
-            <field name="page_height">279</field>
-            <field name="page_width">216</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">10</field>
-            <field name="margin_bottom">30</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">35</field>
-            <field name="dpi">96</field>
-        </record>
-
 
         <template id="report_accounting_nota_entrega_report">
             <t t-call="web.html_container">
@@ -75,9 +58,8 @@
                                 </tr>
                             </table>
                         </div>
-                    <br/>
-                    <br/>
-                    <div style="position: absolute; top: 115px; page-break-inside: evitar;">
+
+                    <div style="position: absolute; top: 140px; page-break-inside: evitar;">
                             <table style="margin-left:840px;font-size:13
                         px;">
                                 <tr>
@@ -94,10 +76,12 @@
                             <table>
                                 <tr>
                                     <td>
+                                        &amp;nbsp;
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
+                                        &amp;nbsp;
                                     </td>
                                 </tr>
                             </table>
