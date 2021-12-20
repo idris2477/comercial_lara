@@ -10,5 +10,10 @@
 		    <field name="name">Registrar Pagos</field>
 		    <field name="category_id" ref="module_category_special_account_button"/>
 		</record>
+
+        <record id="show_boton_account_post_group" model="res.groups">
+		    <field name="name">Publicar facturas</field>
+		    <field name="category_id" ref="module_category_special_account_button"/>
+		</record>
     </data>
 </odoo>
