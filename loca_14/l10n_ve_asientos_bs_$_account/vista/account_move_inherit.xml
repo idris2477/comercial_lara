@@ -16,6 +16,21 @@
         </field>
     </record> 
 
+    <record id="account_move_inerhit_conv_resumen_pro" model="ir.ui.view">
+        <field name="name">account.move.inerhit.conv.resumen.pro</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+           <xpath expr="//field[@name='amount_total_signed']" position="after">    
+                
+                <field name="amount_untaxed_signed_bs" string="Imp. Impuestos $" sum="amount_untaxed_signed_bs"/>
+                <field name="amount_total_signed_aux_bs" string="Total $" sum="amount_total_signed_aux_bs"/>
+                <field name="amount_residual_signed_bs" string="Adeudado $" sum="amount_residual_signed_bs"/>
+              
+            </xpath>
+        </field>
+    </record>
+
     <record id="account_move_line_inerhit_conv" model="ir.ui.view">
         <field name="name">account.move.line.inerhit.conv</field>
         <field name="model">account.move</field>
