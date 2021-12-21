@@ -203,7 +203,7 @@
     <!--t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
                     <t t-call="account.report_invoice_document_with_payments" t-lang="lang"/-->
 
-    <report
+    <!--report
             id="account_nota_entrega"
             model="account.move"
             string="Nota de Entrega"
@@ -211,13 +211,9 @@
             name="l10n_ve_formato_factura_nd_nc.report_invoice_with_payments_copy3"
             file="l10n_ve_formato_factura_nd_nc.report_invoice_with_payments_copy3"
             paperformat="l10n_ve_formato_factura_nd_nc.paperformat_nota_entrega"
-        />
+        /-->
 
-        <!--
-          attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
-            print_report_name="(object._get_report_base_filename())"
-            groups="account.group_account_invoice"
-          -->
+       
   
   </data>
 </odoo>
