@@ -16,11 +16,11 @@
                 </xpath>
                 <xpath expr="//button[@name='action_invoice_sent'][1]" position="attributes">
                     <attribute name="groups"/>
-                    <attribute name="groups">account.group_account_user, account.group_account_manager</attribute>
+                    <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
                 <xpath expr="//button[@name='action_invoice_sent'][2]" position="attributes">
                     <attribute name="groups"/>
-                    <attribute name="groups">account.group_account_user, account.group_account_manager</attribute>
+                    <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
                 <xpath expr="//button[@name='action_register_payment']" position="attributes">
                     <attribute name="groups"/>
@@ -36,7 +36,7 @@
                     <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
                 <xpath expr="//button[@name='button_draft']" position="attributes">
-                    <attribute name="groups">account.group_account_manager</attribute>
+                    <attribute name="groups">account.group_account_manager, hide_buttons.show_boton_account_draft_group</attribute>
                 </xpath>
                 <xpath expr="//button[@name='%(account.action_view_account_move_reversal)d']" position="attributes">
                     <attribute name="groups">account.group_account_manager</attribute>
