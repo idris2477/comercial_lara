@@ -44,13 +44,25 @@
                 <xpath expr="//button[@name='send_email_fxo']" position="attributes">
                     <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
-                <xpath expr="//button[@name='%(account.action_view_account_move_debit)d']" position="attributes">
+                
+            </field>
+        </record>
+
+        <record id="view_move_form_hide_debit" model="ir.ui.view">
+            <field name="name">account.move.form.hide.debit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account_debit_note.view_move_form_debit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_view_debit_notes']" position="attributes">
+                    <attribute name="groups"/>
                     <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
-                <xpath expr="//button[@name='action_view_debit_notes']" position="attributes">
+                <xpath expr="//button[@name='%(account_debit_note.action_view_account_move_debit)d']" position="attributes">
+                    <attribute name="groups"/>
                     <attribute name="groups">account.group_account_manager</attribute>
                 </xpath>
             </field>
         </record>
+
     </data>
 </odoo>

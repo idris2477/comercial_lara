@@ -7,7 +7,7 @@
     'contribuitors': "Bryan Gómez <bryan.gomez1311@gmail.com>",
     'category': "Extra Tools",
     'version': '0.1',
-    'depends': ['base', 'sale', 'account', 'purchase'],
+    'depends': ['sale', 'account', 'purchase', 'account_debit_note'],
     'data': [
         'security/account_security.xml',
         'views/sale_views.xml',
