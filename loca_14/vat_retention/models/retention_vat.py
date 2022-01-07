@@ -491,7 +491,7 @@ class RetentionVat(models.Model):
         #raise UserError(_('darrell = %s')%self.partner_id.vat_retention_rate)
         name = consecutivo_asiento
         signed_amount_total=0
-        amont_totall=self.conv_div_extranjera(self.vat_retentioned) #self.conv_div_extranjera(self.vat_retentioned)
+        amont_totall=self.vat_retentioned #self.conv_div_extranjera(self.vat_retentioned)
         #amount_itf = round(float(total_monto) * float((igtf_porcentage / 100.00)),2)
         if self.type=="in_invoice" or self.type=="in_receipt":
             signed_amount_total=amont_totall
@@ -581,7 +581,7 @@ class RetentionVat(models.Model):
              'partner_id': self.partner_id.id,
              'account_id': cuenta_haber,
              'currency_id':self.invoice_id.currency_id.id,
-             'amount_currency': self.conv_div_extranjera(self.vat_retentioned),
+             #'amount_currency': self.conv_div_extranjera(self.vat_retentioned),
              #'date_maturity': False,
              'credit': valores,
              'debit': 0.0, # aqi va cero   EL DEBITO CUNDO TIENE VALOR, ES QUE EN ACCOUNT_MOVE TOMA UN VALOR
