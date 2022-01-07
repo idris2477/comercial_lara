@@ -532,7 +532,7 @@ class RetentionVat(models.Model):
     def registro_movimiento_linea_retencion(self,id_movv,consecutivo_asiento):
         #raise UserError(_('ID MOVE = %s')%id_movv)
         name = consecutivo_asiento
-        valores = self.conv_div_extranjera(self.vat_retentioned) #self.conv_div_extranjera(self.vat_retentioned) #VALIDAR CONDICION
+        valores = self.vat_retentioned #self.conv_div_extranjera(self.vat_retentioned) #VALIDAR CONDICION
         #raise UserError(_('valores = %s')%valores)
         cero = 0.0
         if self.type=="out_invoice" or self.type=="out_refund" or self.type=="out_receipt":
@@ -580,8 +580,8 @@ class RetentionVat(models.Model):
              'date': self.move_id.date,
              'partner_id': self.partner_id.id,
              'account_id': cuenta_haber,
-             #'currency_id':self.invoice_id.currency_id.id,
-             #'amount_currency': 0.0,
+             'currency_id':self.invoice_id.currency_id.id,
+             'amount_currency': self.conv_div_extranjera(self.vat_retentioned),
              #'date_maturity': False,
              'credit': valores,
              'debit': 0.0, # aqi va cero   EL DEBITO CUNDO TIENE VALOR, ES QUE EN ACCOUNT_MOVE TOMA UN VALOR
