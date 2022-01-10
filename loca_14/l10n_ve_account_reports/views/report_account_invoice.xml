@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
-        <template id="report_accounting_nota_entrega_report">
+        <template id="report_account_invoice_with_payments">
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <div class="page">
-                        <table style="margin-left:700px;margin-top:-100px;">
+                        <table style="margin-left:700px; margin-top:-100px;">
                             <tr>
                                 <td>
                                     <div>
@@ -59,7 +58,7 @@
                             </table>
                         </div>
 
-                    <div style="position: absolute; top: 140px; page-break-inside: evitar;">
+                        <div style="position: absolute; top: 115px; page-break-inside: evitar;">
                             <table style="margin-left:840px;font-size:13
                         px;">
                                 <tr>
@@ -69,11 +68,20 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align:right">
-                                        <t t-esc="docs.correlativo_nota_entrega"/>
+                                        <t t-esc="docs.delivery_note_next_number"/>
                                     </td>
                                 </tr>
                             </table>
-
+                            <table>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
                             <table width="100%">
                                 <tr style="font-size:12px;">
                                     <td style="width:11%;">RAZÓN SOCIAL:</td>
@@ -88,7 +96,7 @@
                                 <tr style="font-size:13px;">
                                     <td style="width:11%;">RIF:</td>
                                     <td style="width:65%">
-                                        <t t-esc="docs.doc_cedula(docs.partner_id.id)"/>
+                                        <t t-esc="docs.partner_id.vat"/>
                                     </td>
                                     <td>FECHA DE EMISIÓN:
                                         <t t-esc="docs.invoice_date"/>
@@ -110,7 +118,7 @@
                                         <t t-esc="docs.partner_id.mobile"/>
                                     </td>
                                     <td>VENDEDOR:
-                                        <t t-esc="docs.vendedor_producto.name"/>
+                                        <t t-esc="docs.invoice_user_id.name"/>
                                     </td>
                                 </tr>
                             </table>
@@ -171,7 +179,7 @@
                                         <!--                                        precio del producto-->
                                         <td>
                                             <div align="center">
-                                                <t t-esc="o.float_format(o.fact_div_line(o.price_unit))"/>
+                                                <t t-esc="o.price_unit"/>
                                             </div>
                                         </td>
                                         <!--                                        descuento del producto-->
@@ -181,7 +189,7 @@
                                         </td>
                                         <!--total a pagar -->
                                         <td style="text-align:center;">
-                                            <t t-esc="o.float_format(o.fact_div_line(o.price_subtotal))"/>
+                                            <t t-esc="o.price_subtotal"/>
                                             <t t-set="acum_subtotal" t-value="acum_subtotal+o.price_subtotal"/>
                                         </td>
 
@@ -239,7 +247,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:center;">
-                                                <t t-esc="docs.float_format(docs.fact_div(acum_subtotal))"/>
+                                                <t t-esc="docs.acum_subtotal"/>
                                                 <t t-esc="docs.doc_currency_id.symbol"/>
                                             </div>
                                         </td>
@@ -359,7 +367,7 @@
                                         </td>
                                         <td>
                                             <div style="text-align:left;">
-                                                <t t-esc="docs.float_format(docs.fact_div(acum_subtotal+acum_alicuota_general))"/>
+                                                <t t-esc="docs.acum_subtotal + acum_alicuota_general"/>
                                                 <t t-esc="docs.doc_currency_id.symbol"/>
                                             </div>
                                         </td>
@@ -373,6 +381,5 @@
                 </t>
             </t>
         </template>
-
     </data>
 </odoo>
